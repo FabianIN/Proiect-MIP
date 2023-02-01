@@ -28,6 +28,10 @@ public class Game implements Serializable {
 	private String players;
 
 	private int publisherid;
+	
+	private int stoc;
+	
+	private int pret;
 
 	public Game() {
 	}
@@ -88,4 +92,22 @@ public class Game implements Serializable {
 		this.publisherid = publisherid;
 	}
 
+	public int getStoc() {
+		return this.stoc;
+	}
+
+	public void setStoc(int stoc) {
+		this.stoc = stoc;
+	}
+
+	public int getPret() {
+		return this.pret;
+	}
+
+	public void setPret(int pret) {
+		this.pret = pret;
+	}
+
+	
+	
 }

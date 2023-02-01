@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="480.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ControllerNewUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="480.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerNewUser">
    <children>
       <VBox prefHeight="340.0" prefWidth="100.0" style="-fx-background-color: #68d7fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label alignment="TOP_LEFT" layoutX="195.0" layoutY="120.0" text="Nume" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="120.0">

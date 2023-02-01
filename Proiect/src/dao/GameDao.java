@@ -40,6 +40,7 @@ public class GameDao extends GenericDao<Game> {
 		Root<Game> c = q.from(Game.class);
 		ParameterExpression<String> paramName = cb.parameter(String.class);
 		q.select(c).where(cb.equal(c.get("gamename"), paramName));
+		//q.select(c).where(cb.like(c.get("gamename"), "%"+paramName+"%"));
 		TypedQuery<Game> query = em.createQuery(q);
 		query.setParameter(paramName, name);
 

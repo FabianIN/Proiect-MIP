@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Game;
-import model.User;
 
 public class GameService {
 	private GameDao gameDao;
@@ -30,16 +29,19 @@ public class GameService {
 		gameDao.update(updatedGame);
 	}
 
-	public List<Game> getAllUsers() {
+	public List<Game> getAllGames() {
 		return gameDao.findAll();
 	}
 	
-	public Game findGame(String games) {
-		List<Game> game = gameDao.find(games);
+	public List<Game> findGame(String gameNume) {
+		List<Game> game = gameDao.find(gameNume);
 		if (game.size() == 0) {
-		Game u = game.get(0);
-		return u;
+
+			return null;
 	}
-		return null;
+		else {
+			return game;
+		}
 	}
+		
 }
