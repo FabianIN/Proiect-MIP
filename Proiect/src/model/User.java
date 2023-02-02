@@ -25,7 +25,7 @@ public class User implements Serializable {
 	
 	private String password;
 	
-	private Boolean isadmin;
+	private int isadmin;
 	
 	public User() {
 	}
@@ -70,12 +70,12 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public Boolean getFunction() {
+	public int getFunction() {
 		return this.isadmin;
 	}
 
-	public void setPassword(Boolean isadmin) {
-		this.isadmin = isadmin;
+	public void setFuncion(int adminI) {
+		this.isadmin = adminI;
 	}
 
 

@@ -38,7 +38,7 @@ public class ControllerLogin {
 	    	
 	    	if(uname.equals("") || pass.contentEquals("")) {
 	    	   	try {
-					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongCredentials.fxml"));
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongCredentialsView.fxml"));
 					Parent root = (Parent) fxmlLoader.load();
 					Stage newStage = new Stage();
 					newStage.setScene(new Scene(root));
@@ -54,7 +54,7 @@ public class ControllerLogin {
     			userAdmin = userService.findUser( uname, pass );
     			
 	    		if(userAdmin != null)
-	    		{ if(userAdmin.getFunction()==true) {
+	    		{ if(userAdmin.getFunction()==1) {
 	    			try {
 	    	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
 	    	    		currentStage.close();

@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 import dao.DesignerDao;
 import model.Designer;
+import model.User;
 
 public class DesignerService {
 	private DesignerDao designerDao;
@@ -18,16 +19,15 @@ public class DesignerService {
 		}
 	}
 
-	public void addDesigner(DesignerDao newDesigner) {
-		
+	public void addUser(Designer newUser) {
+		designerDao.create(newUser);
 	}
 
-	public void updateDesigner(DesignerDao updatedDesigner) {
-		
+	public void updateUser(Designer updatedUser) {
+		designerDao.update(updatedUser);
 	}
 
-	public List<DesignerDao> getAllDesigners() {
-		return null;
-	
+	public List<Designer> getAllUsers() {
+		return designerDao.findAll();
 	}
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1024.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.AdminController">
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1024.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ControllerAdmin">
    <children>
       <VBox prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #68d7fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <ImageView fitHeight="146.0" fitWidth="133.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
@@ -30,7 +30,7 @@
             <TableColumn fx:id="userCol3" editable="false" prefWidth="120.0" resizable="false" text="Username" />
             <TableColumn fx:id="userCol4" editable="false" prefWidth="200.0" resizable="false" text="Email" />
             <TableColumn fx:id="userCol5" editable="false" prefWidth="120.0" resizable="false" text="Password" />
-            <TableColumn fx:id="userCol6" editable="false" prefWidth="100.0" resizable="false" text="Admin?" />
+            <TableColumn fx:id="userCol6" editable="false" prefWidth="100.0" resizable="false" text="Admin 1/0" />
         </columns>
       </TableView>
       <Button fx:id="userManagement" layoutX="575.0" layoutY="112.0" mnemonicParsing="false" onAction="#managementUser" prefHeight="26.0" prefWidth="220.0" text="User management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="110.0">
@@ -91,7 +91,7 @@
             <TableColumn fx:id="gameCol6" editable="false" resizable="false" text="Pret" />
             <TableColumn fx:id="gameCol7" editable="false" resizable="false" text="Stoc" />
             <TableColumn fx:id="gameCol8" editable="false" resizable="false" text="Nr. Jucatori" />
-            <TableColumn fx:id="gameCol9" editable="false" prefWidth="200.0" resizable="false" text="Nr. Jucatori" />
+            <TableColumn fx:id="gameCol9" editable="false" prefWidth="200.0" resizable="false" text="Descriere" />
          </columns>
       </TableView>
       <Button fx:id="addUser" layoutX="115.0" layoutY="247.0" mnemonicParsing="false" onAction="#userAdd" prefHeight="26.0" prefWidth="220.0" text="Add User" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">

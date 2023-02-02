@@ -57,7 +57,7 @@ public class ControllerMainUser {
         		gameTable.setItems(listOffGames);
         		System.out.println(listOffGames);
         		
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongSearch.fxml"));
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongSearchView.fxml"));
 				Parent root = (Parent) fxmlLoader.load();
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(root));
@@ -73,7 +73,7 @@ public class ControllerMainUser {
     		
     		if(sGame==null) {
   	  	      try {
-  					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/notFound.fxml"));
+  					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/notFoundView.fxml"));
   					Parent root = (Parent) fxmlLoader.load();
   					Stage newStage = new Stage();
   					newStage.setScene(new Scene(root));

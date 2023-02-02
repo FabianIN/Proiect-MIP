@@ -33,11 +33,18 @@ public class UserService {
 		return userDao.findAll();
 	}
 
+	public User find(int id) {
+		return  userDao.find(id);
+	}
+		
+//	public User delete(User user, int id) {
+//		return  userDao.remove(user, id);
+//		
+//	}
 	/// for login
 	public User findUser(String user, String pass) throws Exception {
 		List<User> users = userDao.find(user);
 		if (users.size() == 0) {
-//			throw new Exception("User not found!");
 	  	      try {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongUser.fxml"));
 					Parent root = (Parent) fxmlLoader.load();
@@ -52,8 +59,6 @@ public class UserService {
 		User u = users.get(0);
 
 		if (pass.compareTo(u.getPassword()) != 0) {
-//			throw new Exception("Password does not match");
-
   	      try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongPassword.fxml"));
 				Parent root = (Parent) fxmlLoader.load();
@@ -71,4 +76,14 @@ public class UserService {
 		return u;
 		}
 	}
+	
+	public Boolean findUserX(String user) throws Exception {
+		List<User> users = userDao.find(user);
+		if (users.size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+		
 }

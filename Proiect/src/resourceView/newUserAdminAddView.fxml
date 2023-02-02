@@ -10,15 +10,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="480.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerNewUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="480.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ControllerNewUserAdminAdd">
    <children>
       <VBox prefHeight="340.0" prefWidth="100.0" style="-fx-background-color: #68d7fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label alignment="TOP_LEFT" layoutX="195.0" layoutY="120.0" text="Nume" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="120.0">
+      <Label alignment="TOP_LEFT" layoutX="195.0" layoutY="120.0" text="Nume" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="90.0">
          <font>
             <Font name="Broadway" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtnume" layoutX="303.0" layoutY="83.0" promptText="enter nume" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="115.0" />
+      <TextField fx:id="txtnume" layoutX="303.0" layoutY="83.0" promptText="enter nume" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="85.0" />
       <ImageView fitHeight="189.0" fitWidth="166.0" layoutX="14.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../bin/resourceView/logo.png" />
@@ -39,23 +39,29 @@
             <Font name="Broadway" size="14.0" />
          </font>
       </Button>
-      <Label alignment="TOP_LEFT" layoutX="192.0" layoutY="153.0" text="Username" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="155.0">
+      <Label alignment="TOP_LEFT" layoutX="192.0" layoutY="153.0" text="Username" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="125.0">
          <font>
             <Font name="Broadway" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtuname" layoutX="303.0" layoutY="146.0" promptText="enter username" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="150.0" />
-      <Label alignment="TOP_LEFT" layoutX="193.0" layoutY="197.0" text="Password" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="190.0">
+      <TextField fx:id="txtuname" layoutX="303.0" layoutY="146.0" promptText="enter username" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="120.0" />
+      <Label alignment="TOP_LEFT" layoutX="193.0" layoutY="197.0" text="Password" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="160.0">
          <font>
             <Font name="Broadway" size="14.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="203.0" layoutY="207.0" text="Email" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="225.0">
+      <Label alignment="TOP_LEFT" layoutX="203.0" layoutY="207.0" text="Email" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="195.0">
          <font>
             <Font name="Broadway" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtemail" layoutX="314.0" layoutY="200.0" promptText="enter email" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="220.0" />
-      <PasswordField fx:id="txtpass" layoutX="301.0" layoutY="185.0" promptText="enter password" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="185.0" />
+      <TextField fx:id="txtemail" layoutX="314.0" layoutY="200.0" promptText="enter email" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="190.0" />
+      <PasswordField fx:id="txtpass" layoutX="301.0" layoutY="185.0" promptText="enter password" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="155.0" />
+      <Label alignment="TOP_LEFT" layoutX="180.0" layoutY="236.0" text="Is Admin" textFill="#6e2605" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="230.0">
+         <font>
+            <Font name="Broadway" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtadmin" layoutX="291.0" layoutY="229.0" promptText="0/1 - NO/YES" AnchorPane.rightAnchor="30.00000000000003" AnchorPane.topAnchor="225.0" />
    </children>
 </AnchorPane>
