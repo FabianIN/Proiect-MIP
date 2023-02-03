@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 import javax.persistence.Persistence;
 import dao.GameDao;
+import model.Designer;
 import model.Game;
 
 public class GameService {
@@ -19,7 +20,7 @@ public class GameService {
 	public void addGame(Game newGame) {
 		gameDao.create(newGame);
 	}
-
+	
 	public void updateUser(Game updatedGame) {
 		gameDao.update(updatedGame);
 	}

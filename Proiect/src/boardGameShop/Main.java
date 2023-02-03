@@ -11,7 +11,7 @@ public class Main extends Application {
 	public void start(Stage Stage) {
 		try {
 			Stage.setResizable(false);
-			Parent root = FXMLLoader.load(getClass().getResource("/resourceView/AdminView.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/resourceView/LoginView.fxml"));
 			Scene scene = new Scene(root);
 			Stage.setTitle("Board Games Shop Login");
 			Stage.setScene(scene);

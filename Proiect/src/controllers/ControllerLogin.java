@@ -59,8 +59,11 @@ public class ControllerLogin {
 	    			try {
 	    	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
 	    	    		currentStage.close();
-	    				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/AdminView.fxml"));
-	    				Parent root = (Parent) fxmlLoader.load();
+	    	    		Parent root;
+	    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/resourceView/AdminView.fxml"));
+	    				root = loader.load();
+	    				ControllerAdmin controllerAdmin = loader.getController();
+	    				controllerAdmin.displayUserInfo(txtuname);
 	    				Stage newStage = new Stage();
 	    				newStage.setTitle("Board Games Shop - Admin Mode");
 	    				newStage.setScene(new Scene(root));

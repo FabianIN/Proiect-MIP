@@ -218,6 +218,38 @@ public class ControllerAdmin {
 
 	@FXML
 	private Button userManagement;
+	
+    @FXML
+    private Text txtuserColt;
+    
+    @FXML
+    private Button userlogout;
+	
+    @FXML
+    void logout(ActionEvent event) {
+    	
+    	try {
+    		Stage currentStage = (Stage) userlogout.getScene().getWindow();
+    		currentStage.close();
+    		Parent root;
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/resourceView/LoginView.fxml"));
+			root = loader.load();
+			Stage newStage = new Stage();
+			newStage.setTitle("Board Games Shop Login");
+			newStage.setScene(new Scene(root));
+			newStage.setResizable(false);
+			newStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+    }
+    
+	public void displayUserInfo(TextField txtuname)
+	{
+		String userNameInfo = txtuname.getText();
+		txtuserColt.setText(userNameInfo);
+	}
 
 	//// Artist
 
@@ -325,7 +357,7 @@ public class ControllerAdmin {
 
 	}
 
-	//// Designer
+	////Designer
 
 	@FXML
 	void transferDateDesigner(MouseEvent event) {
@@ -433,11 +465,11 @@ public class ControllerAdmin {
 
 	}
 
-	//// Game
+	////Game ////Game
 
 	@FXML
 	void transferDateGame(MouseEvent event) {
-		
+
 		TablePosition pos = gameTabel.getSelectionModel().getSelectedCells().get(0);
 		int row = pos.getRow();
 
@@ -471,22 +503,30 @@ public class ControllerAdmin {
 
 	@FXML
 	void gameRemove(ActionEvent event) {
+
+		GameService newObj = new GameService();
+		String idStr = txtGidHidd.getText();
+		int id = Integer.parseInt(idStr);
+		Game newUser = new Game();
+		newObj.deleteUsers(newUser, id);
+
+	}
+
+	@FXML
+	void gameUpdate(ActionEvent event) {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/DeleteGameView.fxml"));
-			Parent root = (Parent) fxmlLoader.load();
+			Parent root;
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/resourceView/GameUpdateView.fxml"));
+			root = loader.load();
+			ControllerGameUpdate controllerGameUpdate = loader.getController();
+			controllerGameUpdate.displayGameInfo(txtGidHidd, txtGnumeHidd, txtPnumeHidd, txtAnumeHidd, txtDnumeHidd, txtGplayerHidd, txtGpretHidd, txtGstocHidd, txtGdescriereHidd);
 			Stage newStage = new Stage();
 			newStage.setScene(new Scene(root));
 			newStage.setResizable(false);
 			newStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-
-	}
-
-	@FXML
-	void gameUpdate(ActionEvent event) {
-
+		}	
 	}
 
 	@FXML
@@ -536,6 +576,8 @@ public class ControllerAdmin {
 
 	}
 
+	////Publisher
+	
 	//// Publisher
 
 	@FXML
@@ -549,7 +591,7 @@ public class ControllerAdmin {
 
 	}
 
-	@FXML
+@FXML
 	void publisherAdd(ActionEvent event) {
 
 		try {
@@ -765,18 +807,3 @@ public class ControllerAdmin {
 
 }
 
-//addPublisher
-//removePublisher
-//updatePublisher
-//addGame
-//removeGame
-//updateGame
-//addArtist
-//removArtist
-//updateArtist
-//addDesigner
-//removeDesigner
-//updateDesigner
-//addUser
-//removeUser
-//updateUser

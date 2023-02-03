@@ -185,5 +185,15 @@
 		<TextField fx:id="txtGplayerHidd" layoutX="835.0" layoutY="363.0" visible="false" AnchorPane.topAnchor="230.0" />
 		<TextField fx:id="txtGpretHidd" layoutX="835.0" layoutY="411.0" visible="false" AnchorPane.topAnchor="230.0" />
 		<TextField fx:id="txtGdescriereHidd" layoutX="835.0" layoutY="437.0" visible="false" AnchorPane.topAnchor="230.0" />
+      <Text fx:id="txtuserColt" fill="#6e2605" layoutX="893.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Broadway" size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="userlogout" layoutX="903.0" layoutY="46.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="100.0" text="LogOut" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Broadway" size="14.0" />
+         </font>
+      </Button>
 	</children>
 </AnchorPane>

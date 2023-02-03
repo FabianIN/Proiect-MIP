@@ -42,42 +42,42 @@ public class UserService {
 	}
 
 	/// for login
-	public User findUser(String user, String pass) throws Exception {
-		List<User> users = userDao.find(user);
-		if (users.size() == 0) {
-			try {
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/WrongUser.fxml"));
-				Parent root = (Parent) fxmlLoader.load();
-				Stage newStage = new Stage();
-				newStage.setScene(new Scene(root));
-				newStage.setResizable(false);
-				newStage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		User u = users.get(0);
-
-		if (pass == u.getPassword()) {
-			return u;
-
-		} else {
-
-			try {
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/WrongPassword.fxml"));
-				Parent root = (Parent) fxmlLoader.load();
-				Stage newStage = new Stage();
-				newStage.setScene(new Scene(root));
-				newStage.setResizable(false);
-				newStage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-			return null;
-		}
-	}
+//	public User findUser(String user, String pass) throws Exception {
+//		List<User> users = userDao.find(user);
+//		if (users.size() == 0) {
+//			try {
+//				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/WrongUser.fxml"));
+//				Parent root = (Parent) fxmlLoader.load();
+//				Stage newStage = new Stage();
+//				newStage.setScene(new Scene(root));
+//				newStage.setResizable(false);
+//				newStage.show();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//
+//		User u = users.get(0);
+//
+//		if (pass == u.getPassword()) {
+//			return u;
+//
+//		} else {
+//
+//			try {
+//				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/WrongPassword.fxml"));
+//				Parent root = (Parent) fxmlLoader.load();
+//				Stage newStage = new Stage();
+//				newStage.setScene(new Scene(root));
+//				newStage.setResizable(false);
+//				newStage.show();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//
+//			return null;
+//		}
+//	}
 
 	public Boolean findUserX(String user) throws Exception {
 		List<User> users = userDao.find(user);
@@ -88,17 +88,17 @@ public class UserService {
 		}
 	}
 
-//	public User findUser(String user, String pass) throws Exception {
-//		List<User> users = userDao.find(user);
-//		if (users.size() == 0) {
-//			throw new Exception("User not found!");
-//		}
-//		User u = users.get(0);
-//
-//		if (pass.compareTo(u.getPassword()) != 0) {
-//			throw new Exception("Password does not match");
-//		}
-//		return u;
-//	}
+	public User findUser(String user, String pass) throws Exception {
+		List<User> users = userDao.find(user);
+		if (users.size() == 0) {
+			throw new Exception("User not found!");
+		}
+		User u = users.get(0);
+
+		if (pass.compareTo(u.getPassword()) != 0) {
+			throw new Exception("Password does not match");
+		}
+		return u;
+	}
 
 }
