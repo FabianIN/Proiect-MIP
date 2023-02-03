@@ -20,37 +20,39 @@ import service.UserService;
 
 public class ControllerNewUserAdminAdd {
 
-    @FXML
-    private Button btnRegister;
+	@FXML
+	private Button btnRegister;
 
-    @FXML
-    private Button btnReset;
+	@FXML
+	private Button btnReset;
 
-    @FXML
-    private TextField txtemail;
+	@FXML
+	private TextField txtemail;
 
-    @FXML
-    private TextField txtadmin;
+	@FXML
+	private TextField txtadmin;
 
-    @FXML
-    private TextField txtnume;
+	@FXML
+	private TextField txtnume;
 
-    @FXML
-    private PasswordField txtpass;
+	@FXML
+	private PasswordField txtpass;
 
-    @FXML
-    private TextField txtuname;
+	@FXML
+	private TextField txtuname;
 
-    @FXML
-    void register(ActionEvent event) throws Exception {
-    	String uname = txtuname.getText();
-    	String pass = txtpass.getText();
-    	String email = txtemail.getText();
-    	String nume = txtnume.getText();
+	@FXML
+	void register(ActionEvent event) throws Exception {
+		String uname = txtuname.getText();
+		String pass = txtpass.getText();
+		String email = txtemail.getText();
+		String nume = txtnume.getText();
+		String adminI = txtadmin.getText();
 
-    	if(uname.equals("") || pass.contentEquals("") || email.contentEquals("") || nume.contentEquals("")) {
-    	   	try {
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongCredentialsView.fxml"));
+		if (uname.equals("") || pass.contentEquals("") || email.contentEquals("") || nume.contentEquals("")) {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(
+						getClass().getResource("/resourceView/WrongCredentialsView.fxml"));
 				Parent root = (Parent) fxmlLoader.load();
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(root));
@@ -58,17 +60,17 @@ public class ControllerNewUserAdminAdd {
 				newStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}	
-    	}
-    	
-    	UserService userX = new UserService( );
+			}
+		}
+
+		UserService userX = new UserService();
 		Boolean verifyE = userX.findUserX(uname);
 
 		if (!verifyE) {
 			try {
-	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
-	    		currentStage.close();
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/usernameExistView.fxml"));
+				Stage currentStage = (Stage) btnRegister.getScene().getWindow();
+				currentStage.close();
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/UsernameExistView.fxml"));
 				Parent root = (Parent) fxmlLoader.load();
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(root));
@@ -76,53 +78,48 @@ public class ControllerNewUserAdminAdd {
 				newStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
-				}
-		}	else {
-    		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "BoardGameShop" );
-    	      EntityManager entitymanager = emfactory.createEntityManager( );
-    	      entitymanager.getTransaction( ).begin( );
+			}
+		} else {
+			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BoardGameShop");
+			EntityManager entitymanager = emfactory.createEntityManager();
+			entitymanager.getTransaction().begin();
 
-    	      User user = new User( ); 
-    	      user.setName(nume);
-    	      user.setUsername(uname);
-    	      user.setEmail(email);
-    	      user.setPassword(pass);
-    	    if(txtadmin.getText()=="0") {
-    	    	 user.setFuncion(0);
-    	        	}
-    	   	if(txtadmin.getText()=="1") {
-    	   		user.setFuncion(1);
-    	        	}
-    	      entitymanager.persist( user );
-    	      entitymanager.getTransaction( ).commit( );
+			User user = new User();
+			user.setName(nume);
+			user.setUsername(uname);
+			user.setEmail(email);
+			user.setPassword(pass);
+			user.setFunction(adminI);
+			entitymanager.persist(user);
+			entitymanager.getTransaction().commit();
 
-    	      entitymanager.close( );
-    	      emfactory.close( );
-    	      
-    	      try {
-  	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
-  	    		currentStage.close();
-  				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/entityAdaugatView.fxml"));
-  				Parent root = (Parent) fxmlLoader.load();
-  				Stage newStage = new Stage();
-  				newStage.setScene(new Scene(root));
-  				newStage.setResizable(false);
-  				newStage.show();
-  			} catch (IOException e) {
-  				e.printStackTrace();
-  			}
-    		
-    		}
-    }
+			entitymanager.close();
+			emfactory.close();
 
-    @FXML
-    void reset(ActionEvent event) {
-    	
-    	txtuname.setText("");
-    	txtpass.setText("");
-    	txtemail.setText("");
-    	txtnume.setText("");
-    	txtadmin.setText("");
-    }
+			try {
+				Stage currentStage = (Stage) btnRegister.getScene().getWindow();
+				currentStage.close();
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/EntityAdaugatView.fxml"));
+				Parent root = (Parent) fxmlLoader.load();
+				Stage newStage = new Stage();
+				newStage.setScene(new Scene(root));
+				newStage.setResizable(false);
+				newStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+	}
+
+	@FXML
+	void reset(ActionEvent event) {
+
+		txtuname.setText("");
+		txtpass.setText("");
+		txtemail.setText("");
+		txtnume.setText("");
+		txtadmin.setText("");
+	}
 
 }

@@ -6,7 +6,6 @@ import javax.persistence.Persistence;
 
 import dao.DesignerDao;
 import model.Designer;
-import model.User;
 
 public class DesignerService {
 	private DesignerDao designerDao;
@@ -29,5 +28,32 @@ public class DesignerService {
 
 	public List<Designer> getAllUsers() {
 		return designerDao.findAll();
+	}
+
+	public void deleteUsers(Designer entity, int entityId) {
+		designerDao.remove(entity, entityId);
+	}
+
+	public Designer find(int id) {
+		return designerDao.find(id);
+	}
+
+	public int findDesigner(String publisherNume) {
+		List<Designer> designer = designerDao.find(publisherNume);
+		if (designer.size() == 0) {
+
+			return 0;
+		} else {
+			return designer.get(0).getDesignerid();
+		}
+	}
+
+	public Boolean findUserX(String user) throws Exception {
+		List<Designer> users = designerDao.find(user);
+		if (users.size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

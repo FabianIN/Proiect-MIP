@@ -3,18 +3,17 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the game database table.
  * 
  */
 @Entity
-@NamedQuery(name="Game.findAll", query="SELECT g FROM Game g")
+@NamedQuery(name = "Game.findAll", query = "SELECT g FROM Game g")
 public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int gameid;
 
 	private int artistid;
@@ -28,9 +27,9 @@ public class Game implements Serializable {
 	private String players;
 
 	private int publisherid;
-	
+
 	private int stoc;
-	
+
 	private int pret;
 
 	public Game() {
@@ -108,6 +107,4 @@ public class Game implements Serializable {
 		this.pret = pret;
 	}
 
-	
-	
 }

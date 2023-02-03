@@ -12,15 +12,15 @@ import javafx.stage.Stage;
 
 public class ControllerUserAdaugat {
 
-    @FXML
-    private Button btnOk;
+	@FXML
+	private Button btnOk;
 
-    @FXML
-    void ok(ActionEvent event) {
-    	try {
-    	    Stage currentStage = (Stage) btnOk.getScene().getWindow();
-    	    currentStage.close();
-    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/loginView.fxml"));
+	@FXML
+	void ok(ActionEvent event) {
+		try {
+			Stage currentStage = (Stage) btnOk.getScene().getWindow();
+			currentStage.close();
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/LoginView.fxml"));
 			Parent root = (Parent) fxmlLoader.load();
 			Stage newStage = new Stage();
 			newStage.setTitle("Board Games Shop Login");
@@ -30,9 +30,5 @@ public class ControllerUserAdaugat {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    }
+	}
 }
-
-
-
-

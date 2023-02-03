@@ -15,27 +15,28 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Designer;
-import service.UserService;
+import service.DesignerService;
 
 public class ControllerNewDesigner {
 
-    @FXML
-    private Button btnRegister;
+	@FXML
+	private Button btnRegister;
 
-    @FXML
-    private Button btnReset;
+	@FXML
+	private Button btnReset;
 
-    @FXML
-    private TextField txtname;
+	@FXML
+	private TextField txtname;
 
-    @FXML
-    void register(ActionEvent event) throws Exception {
-    	
-    	String name = txtname.getText();
+	@FXML
+	void register(ActionEvent event) throws Exception {
 
-    	if(name.equals("")) {
-    	   	try {
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongCredentialsView.fxml"));
+		String name = txtname.getText();
+
+		if (name.equals("")) {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(
+						getClass().getResource("/resourceView/WrongCredentialsView.fxml"));
 				Parent root = (Parent) fxmlLoader.load();
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(root));
@@ -43,17 +44,17 @@ public class ControllerNewDesigner {
 				newStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}	
-    	}
-    	
-    	UserService userX = new UserService( );
+			}
+		}
+
+		DesignerService userX = new DesignerService();
 		Boolean verifyE = userX.findUserX(name);
 
 		if (!verifyE) {
 			try {
-	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
-	    		currentStage.close();
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/usernameExistView.fxml"));
+				Stage currentStage = (Stage) btnRegister.getScene().getWindow();
+				currentStage.close();
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/UsernameExistView.fxml"));
 				Parent root = (Parent) fxmlLoader.load();
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(root));
@@ -61,43 +62,43 @@ public class ControllerNewDesigner {
 				newStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
-				}
-		}	else {
-    		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "BoardGameShop" );
-    	      EntityManager entitymanager = emfactory.createEntityManager( );
-    	      entitymanager.getTransaction( ).begin( );
+			}
+		} else {
+			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BoardGameShop");
+			EntityManager entitymanager = emfactory.createEntityManager();
+			entitymanager.getTransaction().begin();
 
-    	      Designer designer = new Designer( ); 
-    	      designer.setName(name);
+			Designer designer = new Designer();
+			designer.setName(name);
 
-    	      entitymanager.persist( designer );
-    	      entitymanager.getTransaction( ).commit( );
+			entitymanager.persist(designer);
+			entitymanager.getTransaction().commit();
 
-    	      entitymanager.close( );
-    	      emfactory.close( );
-    	      
-    	      try {
-  	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
-  	    		currentStage.close();
-  				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/entityAdaugatView.fxml"));
-  				Parent root = (Parent) fxmlLoader.load();
-  				Stage newStage = new Stage();
-  				newStage.setScene(new Scene(root));
-  				newStage.setResizable(false);
-  				newStage.show();
-  			} catch (IOException e) {
-  				e.printStackTrace();
-  			}
-    		
-    		}
+			entitymanager.close();
+			emfactory.close();
 
-    }
+			try {
+				Stage currentStage = (Stage) btnRegister.getScene().getWindow();
+				currentStage.close();
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/EntityAdaugatView.fxml"));
+				Parent root = (Parent) fxmlLoader.load();
+				Stage newStage = new Stage();
+				newStage.setScene(new Scene(root));
+				newStage.setResizable(false);
+				newStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
-    @FXML
-    void reset(ActionEvent event) {
-    	
-    	txtname.setText("");
+		}
 
-    }
+	}
+
+	@FXML
+	void reset(ActionEvent event) {
+
+		txtname.setText("");
+
+	}
 
 }

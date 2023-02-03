@@ -38,7 +38,7 @@ public class ControllerLogin {
 	    	
 	    	if(uname.equals("") || pass.contentEquals("")) {
 	    	   	try {
-					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongCredentialsView.fxml"));
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/BlankView.fxml"));
 					Parent root = (Parent) fxmlLoader.load();
 					Stage newStage = new Stage();
 					newStage.setScene(new Scene(root));
@@ -50,15 +50,16 @@ public class ControllerLogin {
 	    	}
 	    	else {
 	    		UserService userService = new UserService();
-	    		User userAdmin = new User();
-    			userAdmin = userService.findUser( uname, pass );
+	    		User user = new User();
+	    		user = userService.findUser( uname, pass );
+	    		int isAdmin = Integer.parseInt(user.getFunction());
     			
-	    		if(userAdmin != null)
-	    		{ if(userAdmin.getFunction()==1) {
+	    		if(user != null)
+	    		{ if(isAdmin==1) {
 	    			try {
 	    	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
 	    	    		currentStage.close();
-	    				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/adminView.fxml"));
+	    				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/AdminView.fxml"));
 	    				Parent root = (Parent) fxmlLoader.load();
 	    				Stage newStage = new Stage();
 	    				newStage.setTitle("Board Games Shop - Admin Mode");
@@ -74,7 +75,7 @@ public class ControllerLogin {
 	    			try {
 	    	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
 	    	    		currentStage.close();
-	    				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/userView.fxml"));
+	    				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/UserView.fxml"));
 	    				Parent root = (Parent) fxmlLoader.load();
 	    				Stage newStage = new Stage();
 	    				newStage.setTitle("Board Games Shop");
@@ -94,7 +95,7 @@ public class ControllerLogin {
 	    	try {
 	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
 	    		currentStage.close();
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/newUserView.fxml"));
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/NewUserView.fxml"));
 				Parent root = (Parent) fxmlLoader.load();
 				Stage newStage = new Stage();
 				newStage.setTitle("Add New User");

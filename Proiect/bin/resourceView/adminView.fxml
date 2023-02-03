@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,163 +12,178 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1024.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ControllerAdmin">
-   <children>
-      <VBox prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #68d7fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <ImageView fitHeight="146.0" fitWidth="133.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../bin/resourceView/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="61.0" fitWidth="695.0" layoutX="133.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../bin/resourceView/text.png" />
-         </image>
-      </ImageView>
-      <TableView fx:id="userTabel" layoutX="100.0" layoutY="225.0" prefHeight="360.0" prefWidth="700.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
-        <columns>
-          <TableColumn fx:id="userCol1" editable="false" prefWidth="50.0" resizable="false" text="ID" />
-            <TableColumn fx:id="userCol2" editable="false" prefWidth="110.0" resizable="false" text="Nume" />
-            <TableColumn fx:id="userCol3" editable="false" prefWidth="120.0" resizable="false" text="Username" />
-            <TableColumn fx:id="userCol4" editable="false" prefWidth="200.0" resizable="false" text="Email" />
-            <TableColumn fx:id="userCol5" editable="false" prefWidth="120.0" resizable="false" text="Password" />
-            <TableColumn fx:id="userCol6" editable="false" prefWidth="100.0" resizable="false" text="Admin 1/0" />
-        </columns>
-      </TableView>
-      <Button fx:id="userManagement" layoutX="575.0" layoutY="112.0" mnemonicParsing="false" onAction="#managementUser" prefHeight="26.0" prefWidth="220.0" text="User management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="110.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="gameManagement" layoutX="575.0" layoutY="152.0" mnemonicParsing="false" onAction="#managementGame" prefHeight="26.0" prefWidth="220.0" text="Game management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="110.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="artistManagement" layoutX="571.0" layoutY="196.0" mnemonicParsing="false" onAction="#managementArtist" prefHeight="26.0" prefWidth="220.0" text="Artist management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="150.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="designerManagement" layoutX="571.0" layoutY="228.0" mnemonicParsing="false" onAction="#managementDesigner" prefHeight="26.0" prefWidth="220.0" text="Designer management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="150.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="publisherManagement" layoutX="574.0" layoutY="267.0" mnemonicParsing="false" onAction="#managementPublisher" prefHeight="26.0" prefWidth="220.0" text="Publisher management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="190.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Text fx:id="currentMan" fill="#6e2605" layoutX="122.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="220.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Text>
-      <TableView fx:id="publisherTable" layoutX="100.0" layoutY="225.0" prefHeight="360.0" prefWidth="250.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
-         <columns>
-            <TableColumn fx:id="publisherCol1" editable="false" prefWidth="50.0" text="ID" />
-            <TableColumn fx:id="publisherCol2" editable="false" prefWidth="200.0" text="Nume Publisher" />
-         </columns>
-      </TableView>
-      <TableView fx:id="designerTable" layoutX="110.0" layoutY="235.0" prefHeight="360.0" prefWidth="250.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
-         <columns>
-            <TableColumn fx:id="designerCol1" editable="false" prefWidth="50.0" text="ID" />
-            <TableColumn fx:id="designerCol2" editable="false" prefWidth="200.0" text="Nume Designer" />
-         </columns>
-      </TableView>
-      <TableView fx:id="artistTable" layoutX="110.0" layoutY="235.0" prefHeight="360.0" prefWidth="250.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
-         <columns>
-            <TableColumn fx:id="artistCol1" editable="false" prefWidth="50.0" text="ID" />
-            <TableColumn fx:id="artistCol2" editable="false" prefWidth="200.0" text="Nume Artist" />
-         </columns>
-      </TableView>
-      <TableView fx:id="gameTabel" layoutX="110.0" layoutY="235.0" prefHeight="360.0" prefWidth="870.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
-         <columns>
-            <TableColumn fx:id="gameCol1" editable="false" prefWidth="50.0" resizable="false" text="ID" />
-            <TableColumn fx:id="gameCol2" editable="false" prefWidth="140.0" resizable="false" text="Nume" />
-            <TableColumn fx:id="gameCol3" editable="false" resizable="false" text="ID Publisher" />
-            <TableColumn fx:id="gameCol4" editable="false" resizable="false" text="ID Artist" />
-            <TableColumn fx:id="gameCol5" editable="false" resizable="false" text="ID Designer" />
-            <TableColumn fx:id="gameCol6" editable="false" resizable="false" text="Pret" />
-            <TableColumn fx:id="gameCol7" editable="false" resizable="false" text="Stoc" />
-            <TableColumn fx:id="gameCol8" editable="false" resizable="false" text="Nr. Jucatori" />
-            <TableColumn fx:id="gameCol9" editable="false" prefWidth="200.0" resizable="false" text="Descriere" />
-         </columns>
-      </TableView>
-      <Button fx:id="addUser" layoutX="115.0" layoutY="247.0" mnemonicParsing="false" onAction="#userAdd" prefHeight="26.0" prefWidth="220.0" text="Add User" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="removeUser" layoutX="357.0" layoutY="254.0" mnemonicParsing="false" onAction="#userRemove" prefHeight="26.0" prefWidth="220.0" text="Remove User" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="updateUser" layoutX="580.0" layoutY="250.0" mnemonicParsing="false" onAction="#userUpdate" prefHeight="26.0" prefWidth="220.0" text="Update User" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="addGame" layoutX="125.0" layoutY="257.0" mnemonicParsing="false" onAction="#gameAdd" prefHeight="26.0" prefWidth="220.0" text="Add Game" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="removeGame" layoutX="367.0" layoutY="264.0" mnemonicParsing="false" onAction="#gameRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Game" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="updateGame" layoutX="590.0" layoutY="260.0" mnemonicParsing="false" onAction="#gameUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Game" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="addDesigner" layoutX="116.0" layoutY="203.0" mnemonicParsing="false" onAction="#designerAdd" prefHeight="26.0" prefWidth="220.0" text="Add Designer" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="removeDesigner" layoutX="358.0" layoutY="210.0" mnemonicParsing="false" onAction="#designerRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Designer" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="updateDesigner" layoutX="581.0" layoutY="206.0" mnemonicParsing="false" onAction="#designerUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Designer" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="addArtist" layoutX="116.0" layoutY="173.0" mnemonicParsing="false" onAction="#artistAdd" prefHeight="26.0" prefWidth="220.0" text="Add Artist" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="removArtist" layoutX="358.0" layoutY="180.0" mnemonicParsing="false" onAction="#artistRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Artist" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="updateArtist" layoutX="581.0" layoutY="176.0" mnemonicParsing="false" onAction="#artistUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Artist" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="addPublisher" layoutX="116.0" layoutY="216.0" mnemonicParsing="false" onAction="#publisherAdd" prefHeight="26.0" prefWidth="220.0" text="Add Publisher" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="removePublisher" layoutX="358.0" layoutY="223.0" mnemonicParsing="false" onAction="#publisherRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Publisher" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="updatePublisher" layoutX="581.0" layoutY="219.0" mnemonicParsing="false" onAction="#publisherUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Publisher" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
-         <font>
-            <Font name="Broadway" size="14.0" />
-         </font>
-      </Button>
-   </children>
+	<children>
+		<VBox prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #68d7fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+		<ImageView fitHeight="146.0" fitWidth="133.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../bin/resourceView/logo.png" />
+			</image>
+		</ImageView>
+		<ImageView fitHeight="61.0" fitWidth="695.0" layoutX="133.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../bin/resourceView/text.png" />
+			</image>
+		</ImageView>
+		<TableView fx:id="userTabel" layoutX="100.0" layoutY="225.0" onMouseClicked="#transferDateUser" prefHeight="360.0" prefWidth="700.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
+			<columns>
+				<TableColumn fx:id="userCol1" editable="false" prefWidth="50.0" resizable="false" text="ID" />
+				<TableColumn fx:id="userCol2" editable="false" prefWidth="110.0" resizable="false" text="Nume" />
+				<TableColumn fx:id="userCol3" editable="false" prefWidth="120.0" resizable="false" text="Username" />
+				<TableColumn fx:id="userCol4" editable="false" prefWidth="200.0" resizable="false" text="Email" />
+				<TableColumn fx:id="userCol5" editable="false" prefWidth="120.0" resizable="false" text="Password" />
+				<TableColumn fx:id="userCol6" prefWidth="94.400146484375" text="Admin" />
+			</columns>
+		</TableView>
+		<Button fx:id="userManagement" layoutX="575.0" layoutY="112.0" mnemonicParsing="false" onAction="#managementUser" prefHeight="26.0" prefWidth="220.0" text="User management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="110.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="gameManagement" layoutX="575.0" layoutY="152.0" mnemonicParsing="false" onAction="#managementGame" prefHeight="26.0" prefWidth="220.0" text="Game management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="110.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="artistManagement" layoutX="571.0" layoutY="196.0" mnemonicParsing="false" onAction="#managementArtist" prefHeight="26.0" prefWidth="220.0" text="Artist management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="150.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="designerManagement" layoutX="571.0" layoutY="228.0" mnemonicParsing="false" onAction="#managementDesigner" prefHeight="26.0" prefWidth="220.0" text="Designer management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="150.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="publisherManagement" layoutX="574.0" layoutY="267.0" mnemonicParsing="false" onAction="#managementPublisher" prefHeight="26.0" prefWidth="220.0" text="Publisher management" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="190.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Text fx:id="currentMan" fill="#6e2605" layoutX="122.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="220.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Text>
+		<TableView fx:id="publisherTable" layoutX="100.0" layoutY="225.0" onMouseClicked="#transferDatePublisher" prefHeight="360.0" prefWidth="250.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
+			<columns>
+				<TableColumn fx:id="publisherCol1" editable="false" prefWidth="50.0" text="ID" />
+				<TableColumn fx:id="publisherCol2" editable="false" prefWidth="200.0" text="Nume Publisher" />
+			</columns>
+		</TableView>
+		<TableView fx:id="designerTable" layoutX="110.0" layoutY="235.0" onMouseClicked="#transferDateDesigner" prefHeight="360.0" prefWidth="250.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
+			<columns>
+				<TableColumn fx:id="designerCol1" editable="false" prefWidth="50.0" text="ID" />
+				<TableColumn fx:id="designerCol2" editable="false" prefWidth="200.0" text="Nume Designer" />
+			</columns>
+		</TableView>
+		<TableView fx:id="artistTable" layoutX="110.0" layoutY="235.0" onMouseClicked="#transferDateArtist" prefHeight="360.0" prefWidth="250.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
+			<columns>
+				<TableColumn fx:id="artistCol1" editable="false" prefWidth="50.0" text="ID" />
+				<TableColumn fx:id="artistCol2" editable="false" prefWidth="200.0" text="Nume Artist" />
+			</columns>
+		</TableView>
+		<TableView fx:id="gameTabel" layoutX="110.0" layoutY="235.0" onMouseClicked="#transferDateGame" prefHeight="360.0" prefWidth="870.0" style="-fx-background-color: #cff2fe;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0">
+			<columns>
+				<TableColumn fx:id="gameCol1" editable="false" prefWidth="50.0" resizable="false" text="ID" />
+				<TableColumn fx:id="gameCol2" editable="false" prefWidth="140.0" resizable="false" text="Nume" />
+				<TableColumn fx:id="gameCol3" editable="false" resizable="false" text="ID Publisher" />
+				<TableColumn fx:id="gameCol4" editable="false" resizable="false" text="ID Artist" />
+				<TableColumn fx:id="gameCol5" editable="false" resizable="false" text="ID Designer" />
+				<TableColumn fx:id="gameCol6" editable="false" resizable="false" text="Pret" />
+				<TableColumn fx:id="gameCol7" editable="false" resizable="false" text="Stoc" />
+				<TableColumn fx:id="gameCol8" editable="false" resizable="false" text="Nr. Jucatori" />
+				<TableColumn fx:id="gameCol9" editable="false" prefWidth="200.0" resizable="false" text="Descriere" />
+			</columns>
+		</TableView>
+		<Button fx:id="addUser" layoutX="115.0" layoutY="247.0" mnemonicParsing="false" onAction="#userAdd" prefHeight="26.0" prefWidth="220.0" text="Add User" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="removeUser" layoutX="357.0" layoutY="254.0" mnemonicParsing="false" onAction="#userRemove" prefHeight="26.0" prefWidth="220.0" text="Remove User" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="updateUser" layoutX="580.0" layoutY="250.0" mnemonicParsing="false" onAction="#userUpdate" prefHeight="26.0" prefWidth="220.0" text="Update User" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="addGame" layoutX="125.0" layoutY="257.0" mnemonicParsing="false" onAction="#gameAdd" prefHeight="26.0" prefWidth="220.0" text="Add Game" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="removeGame" layoutX="367.0" layoutY="264.0" mnemonicParsing="false" onAction="#gameRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Game" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="updateGame" layoutX="590.0" layoutY="260.0" mnemonicParsing="false" onAction="#gameUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Game" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="addDesigner" layoutX="116.0" layoutY="203.0" mnemonicParsing="false" onAction="#designerAdd" prefHeight="26.0" prefWidth="220.0" text="Add Designer" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="removeDesigner" layoutX="358.0" layoutY="210.0" mnemonicParsing="false" onAction="#designerRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Designer" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="updateDesigner" layoutX="581.0" layoutY="206.0" mnemonicParsing="false" onAction="#designerUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Designer" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="addArtist" layoutX="116.0" layoutY="173.0" mnemonicParsing="false" onAction="#artistAdd" prefHeight="26.0" prefWidth="220.0" text="Add Artist" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="removArtist" layoutX="358.0" layoutY="180.0" mnemonicParsing="false" onAction="#artistRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Artist" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="updateArtist" layoutX="581.0" layoutY="176.0" mnemonicParsing="false" onAction="#artistUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Artist" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="addPublisher" layoutX="116.0" layoutY="216.0" mnemonicParsing="false" onAction="#publisherAdd" prefHeight="26.0" prefWidth="220.0" text="Add Publisher" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="removePublisher" layoutX="358.0" layoutY="223.0" mnemonicParsing="false" onAction="#publisherRemove" prefHeight="26.0" prefWidth="220.0" text="Remove Publisher" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="updatePublisher" layoutX="581.0" layoutY="219.0" mnemonicParsing="false" onAction="#publisherUpdate" prefHeight="26.0" prefWidth="220.0" text="Update Publisher" textAlignment="CENTER" textFill="#6e2605" visible="false" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="250.0">
+			<font>
+				<Font name="Broadway" size="14.0" />
+			</font>
+		</Button>
+		<TextField fx:id="txtNumeHidd" layoutX="177.0" layoutY="98.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0" />
+		<TextField fx:id="txtIdHidd" layoutX="178.0" layoutY="124.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0" />
+		<TextField fx:id="txtUnumeHidd" layoutX="178.0" layoutY="151.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0" />
+		<TextField fx:id="txtPassHidd" layoutX="179.0" layoutY="178.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0" />
+		<TextField fx:id="txtEmailHidd" layoutX="180.0" layoutY="204.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0" />
+		<TextField fx:id="txtAdminHidd" layoutX="178.0" layoutY="230.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0" />
+		<TextField fx:id="txtGnumeHidd" layoutX="835.0" layoutY="237.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtPnumeHidd" layoutX="835.0" layoutY="285.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtGidHidd" layoutX="835.0" layoutY="263.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtAnumeHidd" layoutX="835.0" layoutY="311.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtDnumeHidd" layoutX="835.0" layoutY="337.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtGstocHidd" layoutX="835.0" layoutY="385.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtGplayerHidd" layoutX="835.0" layoutY="363.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtGpretHidd" layoutX="835.0" layoutY="411.0" visible="false" AnchorPane.topAnchor="230.0" />
+		<TextField fx:id="txtGdescriereHidd" layoutX="835.0" layoutY="437.0" visible="false" AnchorPane.topAnchor="230.0" />
+	</children>
 </AnchorPane>

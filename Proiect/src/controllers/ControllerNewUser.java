@@ -1,8 +1,6 @@
 package controllers;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -20,105 +18,101 @@ import service.UserService;
 
 public class ControllerNewUser {
 
-    @FXML
-    private Button btnRegister;
+	@FXML
+	private Button btnRegister;
 
-    @FXML
-    private Button btnReset;
+	@FXML
+	private Button btnReset;
 
-    @FXML
-    private TextField txtemail;
+	@FXML
+	private TextField txtemail;
 
-    @FXML
-    private TextField txtnume;
+	@FXML
+	private TextField txtnume;
 
-    @FXML
-    private PasswordField txtpass;
+	@FXML
+	private PasswordField txtpass;
 
-    @FXML
-    private TextField txtuname;
+	@FXML
+	private TextField txtuname;
 
-	    @FXML
-	    void register(ActionEvent event) throws Exception {
-	    	
-	    	String uname = txtuname.getText();
-	    	String pass = txtpass.getText();
-	    	String email = txtemail.getText();
-	    	String nume = txtnume.getText();
-	    	
-	    	if(uname.equals("") || pass.contentEquals("") || email.contentEquals("") || nume.contentEquals("")) {
-	    	   	try {
-					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/wrongCredentialsView.fxml"));
-					Parent root = (Parent) fxmlLoader.load();
-					Stage newStage = new Stage();
-					newStage.setScene(new Scene(root));
-					newStage.setResizable(false);
-					newStage.show();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}	
-	    	} 
-	    	
-	    	
-	    		UserService userX = new UserService( );
-	    		Boolean verifyE = userX.findUserX(uname);
+	@FXML
+	void register(ActionEvent event) throws Exception {
 
-	    		if (!verifyE) {
-	    			try {
-	  	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
-	  	    		currentStage.close();
-	  				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/usernameExistView.fxml"));
-	  				Parent root = (Parent) fxmlLoader.load();
-	  				Stage newStage = new Stage();
-	  				newStage.setScene(new Scene(root));
-	  				newStage.setResizable(false);
-	  				newStage.show();
-	  			} catch (IOException e) {
-	  				e.printStackTrace();
-	  				}
-	    		}	else {
-	    		  EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "BoardGameShop" );
-	    	      EntityManager entitymanager = emfactory.createEntityManager( );
-	    	      entitymanager.getTransaction( ).begin( );
+		String uname = txtuname.getText();
+		String pass = txtpass.getText();
+		String email = txtemail.getText();
+		String nume = txtnume.getText();
 
-	    	      User user = new User( ); 
-	    	      user.setName(nume);
-	    	      user.setUsername(uname);
-	    	      user.setEmail(email);
-	    	      user.setPassword(pass);
-	    	      entitymanager.persist( user );
-	    	      entitymanager.getTransaction( ).commit( );
+		if (uname.equals("") || pass.contentEquals("") || email.contentEquals("") || nume.contentEquals("")) {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(
+						getClass().getResource("/resourceView/WrongCredentialsView.fxml"));
+				Parent root = (Parent) fxmlLoader.load();
+				Stage newStage = new Stage();
+				newStage.setScene(new Scene(root));
+				newStage.setResizable(false);
+				newStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
-	    	      entitymanager.close( );
-	    	      emfactory.close( );
-	    	      
-	    	      try {
-	  	    		Stage currentStage = (Stage) btnRegister.getScene().getWindow();
-	  	    		currentStage.close();
-	  				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/userAdaugatView.fxml"));
-	  				Parent root = (Parent) fxmlLoader.load();
-	  				Stage newStage = new Stage();
-	  				newStage.setScene(new Scene(root));
-	  				newStage.setResizable(false);
-	  				newStage.show();
-	  			} catch (IOException e) {
-	  				e.printStackTrace();
-	  			}
-	    		
-	    		}
-	    }
+		UserService userX = new UserService();
+		Boolean verifyE = userX.findUserX(uname);
 
-	    @FXML
-	    void reset(ActionEvent event) {
-	    	
-	    	txtuname.setText("");
-	    	txtpass.setText("");
-	    	txtemail.setText("");
-	    	txtnume.setText("");
-	    }
+		if (!verifyE) {
+			try {
+				Stage currentStage = (Stage) btnRegister.getScene().getWindow();
+				currentStage.close();
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/UsernameExistView.fxml"));
+				Parent root = (Parent) fxmlLoader.load();
+				Stage newStage = new Stage();
+				newStage.setScene(new Scene(root));
+				newStage.setResizable(false);
+				newStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BoardGameShop");
+			EntityManager entitymanager = emfactory.createEntityManager();
+			entitymanager.getTransaction().begin();
 
+			User user = new User();
+			user.setName(nume);
+			user.setUsername(uname);
+			user.setEmail(email);
+			user.setPassword(pass);
+			entitymanager.persist(user);
+			entitymanager.getTransaction().commit();
+
+			entitymanager.close();
+			emfactory.close();
+
+			try {
+				Stage currentStage = (Stage) btnRegister.getScene().getWindow();
+				currentStage.close();
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resourceView/UserAdaugatView.fxml"));
+				Parent root = (Parent) fxmlLoader.load();
+				Stage newStage = new Stage();
+				newStage.setScene(new Scene(root));
+				newStage.setResizable(false);
+				newStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
 	}
 
+	@FXML
+	void reset(ActionEvent event) {
 
+		txtuname.setText("");
+		txtpass.setText("");
+		txtemail.setText("");
+		txtnume.setText("");
+	}
 
-
+}

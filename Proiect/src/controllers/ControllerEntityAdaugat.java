@@ -7,14 +7,13 @@ import javafx.stage.Stage;
 
 public class ControllerEntityAdaugat {
 
-    @FXML
-    private Button btnOk;
+	@FXML
+	private Button btnOk;
 
-    @FXML
-    void ok(ActionEvent event) {
-	    Stage currentStage = (Stage) btnOk.getScene().getWindow();
-	    currentStage.close();
-    }
+	@FXML
+	void ok(ActionEvent event) {
+		Stage currentStage = (Stage) btnOk.getScene().getWindow();
+		currentStage.close();
+	}
 
 }
-

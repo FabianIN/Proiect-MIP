@@ -3,30 +3,29 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the user database table.
  * 
  */
 @Entity
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int uid;
 
 	private String name;
-	
+
 	private String username;
-	
+
 	private String email;
-	
+
 	private String password;
-	
-	private int isadmin;
-	
+
+	private String functie;
+
 	public User() {
 	}
 
@@ -70,13 +69,12 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public int getFunction() {
-		return this.isadmin;
+	public String getFunction() {
+		return this.functie;
 	}
 
-	public void setFuncion(int adminI) {
-		this.isadmin = adminI;
+	public void setFunction(String functie) {
+		this.functie = functie;
 	}
-
 
 }

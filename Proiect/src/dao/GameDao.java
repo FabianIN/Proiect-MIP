@@ -11,7 +11,6 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import model.Game;
-import model.User;
 
 public class GameDao extends GenericDao<Game> {
 
@@ -21,7 +20,7 @@ public class GameDao extends GenericDao<Game> {
 		super(Game.class);
 		this.factory = factory;
 	}
-	
+
 	@Override
 	public EntityManager getEntityManager() {
 		try {
@@ -31,7 +30,21 @@ public class GameDao extends GenericDao<Game> {
 			return null;
 		}
 	}
-	
+
+	public void remove(Game entity, int entityId) {
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.remove((Game) em.find(Game.class, entityId));
+			em.getTransaction().commit();
+		} catch (RuntimeException e) {
+			em.getTransaction().rollback();
+
+		} finally {
+			em.close();
+		}
+	}
+
 	public List<Game> find(String name) {
 		EntityManager em = getEntityManager();
 		CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -40,12 +53,11 @@ public class GameDao extends GenericDao<Game> {
 		Root<Game> c = q.from(Game.class);
 		ParameterExpression<String> paramName = cb.parameter(String.class);
 		q.select(c).where(cb.equal(c.get("gamename"), paramName));
-		//q.select(c).where(cb.like(c.get("gamename"), "%"+paramName+"%"));
 		TypedQuery<Game> query = em.createQuery(q);
 		query.setParameter(paramName, name);
 
 		List<Game> results = query.getResultList();
 		return results;
 	}
-}
 
+}

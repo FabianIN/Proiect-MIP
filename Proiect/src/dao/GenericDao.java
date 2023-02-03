@@ -41,7 +41,7 @@ public abstract class GenericDao<T> {
 			em.close();
 		}
 	}
-	
+
 	public void remove(T entity, int entityId) {
 		EntityManager em = getEntityManager();
 		try {
@@ -70,6 +70,20 @@ public abstract class GenericDao<T> {
 		return null;
 	}
 
+	public T findS(String nume) {
+		EntityManager em = getEntityManager();
+		try {
+			T ret = (T) em.find(this.entityClass, nume);
+			return ret;
+		} catch (RuntimeException e) {
+			em.getTransaction().rollback();
+
+		} finally {
+			em.close();
+		}
+		return null;
+	}
+
 	public List<T> findAll() {
 		EntityManager em = getEntityManager();
 		try {
@@ -87,4 +101,3 @@ public abstract class GenericDao<T> {
 	}
 
 }
-

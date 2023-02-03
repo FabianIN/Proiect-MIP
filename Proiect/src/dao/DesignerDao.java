@@ -11,10 +11,8 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import model.Designer;
-import model.User;
 
-public class DesignerDao extends GenericDao <Designer> {
-
+public class DesignerDao extends GenericDao<Designer> {
 
 	private EntityManagerFactory factory;
 
@@ -32,7 +30,21 @@ public class DesignerDao extends GenericDao <Designer> {
 			return null;
 		}
 	}
-	
+
+	public void remove(Designer entity, int entityId) {
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.remove((Designer) em.find(Designer.class, entityId));
+			em.getTransaction().commit();
+		} catch (RuntimeException e) {
+			em.getTransaction().rollback();
+
+		} finally {
+			em.close();
+		}
+	}
+
 	public List<Designer> find(String name) {
 		EntityManager em = getEntityManager();
 		CriteriaBuilder cb = em.getCriteriaBuilder();
