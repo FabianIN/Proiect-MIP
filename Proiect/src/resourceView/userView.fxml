@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1024.0" style="-fx-background-color: #cff2fe;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ControllerMainUser">
    <children>
@@ -29,15 +30,41 @@
             <Font name="Broadway" size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="gameTable" layoutX="100.0" layoutY="226.0" onMouseClicked="#proba" prefHeight="410.0" prefWidth="389.0" style="-fx-background-color: #cff2fe;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="520.0" AnchorPane.topAnchor="235.0">
+      <TableView fx:id="gameTable" layoutX="100.0" layoutY="226.0" onMouseClicked="#getDetalii" prefHeight="410.0" prefWidth="555.0" style="-fx-background-color: #cff2fe;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="354.0" AnchorPane.topAnchor="235.0">
          <columns>
             <TableColumn fx:id="displayName" prefWidth="168.79998779296875" resizable="false" text="Denumire Joc" />
             <TableColumn fx:id="displayPret" prefWidth="107.20001220703125" text="Pret" />
             <TableColumn fx:id="displayStoc" prefWidth="111.20001220703125" text="Disponibilitate" />
+            <TableColumn fx:id="displayDescriere" prefWidth="165.4000244140625" text="Descriere" />
          </columns>
       </TableView>
-      <TextField fx:id="txt1" layoutX="665.0" layoutY="199.0" />
-      <TextField fx:id="txt2" layoutX="672.0" layoutY="252.0" />
-      <TextField fx:id="txt3" layoutX="665.0" layoutY="299.0" />
+      <Text fx:id="txtuserColt" fill="#6e2605" layoutX="903.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Broadway" size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="userlogout" layoutX="913.0" layoutY="56.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="100.0" text="LogOut" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Broadway" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdaugaCos" layoutX="545.0" layoutY="196.0" mnemonicParsing="false" onAction="#cumpara" text="Adauga in cos" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="355.0" AnchorPane.topAnchor="195.0">
+         <font>
+            <Font name="Broadway" size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tabelCos" layoutX="716.0" layoutY="108.0" prefHeight="150.0" prefWidth="280.0" style="-fx-background-color: #cff2fe;">
+        <columns>
+          <TableColumn fx:id="produsCos" prefWidth="193.5999755859375" text="Denumire" />
+          <TableColumn fx:id="pretProdusCOs" prefWidth="84.800048828125" text="Pret" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnRefreshCos" layoutX="544.0" layoutY="160.0" mnemonicParsing="false" onAction="#cumpara" text="Refresh Cos" textAlignment="CENTER" textFill="#6e2605" AnchorPane.rightAnchor="355.0" AnchorPane.topAnchor="160.0">
+         <font>
+            <Font name="Broadway" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtJoc" layoutX="766.0" layoutY="449.0" visible="false" />
+      <TextField fx:id="txtPret" layoutX="766.0" layoutY="474.0" visible="false" />
    </children>
 </AnchorPane>

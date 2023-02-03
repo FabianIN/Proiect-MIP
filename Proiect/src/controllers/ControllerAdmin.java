@@ -218,20 +218,20 @@ public class ControllerAdmin {
 
 	@FXML
 	private Button userManagement;
-	
-    @FXML
-    private Text txtuserColt;
-    
-    @FXML
-    private Button userlogout;
-	
-    @FXML
-    void logout(ActionEvent event) {
-    	
-    	try {
-    		Stage currentStage = (Stage) userlogout.getScene().getWindow();
-    		currentStage.close();
-    		Parent root;
+
+	@FXML
+	private Text txtuserColt;
+
+	@FXML
+	private Button userlogout;
+
+	@FXML
+	void logout(ActionEvent event) {
+
+		try {
+			Stage currentStage = (Stage) userlogout.getScene().getWindow();
+			currentStage.close();
+			Parent root;
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/resourceView/LoginView.fxml"));
 			root = loader.load();
 			Stage newStage = new Stage();
@@ -243,10 +243,9 @@ public class ControllerAdmin {
 			e.printStackTrace();
 		}
 
-    }
-    
-	public void displayUserInfo(TextField txtuname)
-	{
+	}
+
+	public void displayUserInfo(TextField txtuname) {
 		String userNameInfo = txtuname.getText();
 		txtuserColt.setText(userNameInfo);
 	}
@@ -357,7 +356,7 @@ public class ControllerAdmin {
 
 	}
 
-	////Designer
+	//// Designer
 
 	@FXML
 	void transferDateDesigner(MouseEvent event) {
@@ -465,7 +464,7 @@ public class ControllerAdmin {
 
 	}
 
-	////Game ////Game
+	//// Game ////Game
 
 	@FXML
 	void transferDateGame(MouseEvent event) {
@@ -510,6 +509,21 @@ public class ControllerAdmin {
 		Game newUser = new Game();
 		newObj.deleteUsers(newUser, id);
 
+		GameService newGame = new GameService();
+		List<Game> allGames = newGame.getAllGames();
+
+		ObservableList<Game> listOffGames = FXCollections.observableArrayList(new ArrayList<Game>(allGames));
+		gameCol1.setCellValueFactory(new PropertyValueFactory<Game, Integer>("gameid"));
+		gameCol2.setCellValueFactory(new PropertyValueFactory<Game, String>("gamename"));
+		gameCol3.setCellValueFactory(new PropertyValueFactory<Game, Integer>("publisherid"));
+		gameCol4.setCellValueFactory(new PropertyValueFactory<Game, Integer>("artistid"));
+		gameCol5.setCellValueFactory(new PropertyValueFactory<Game, Integer>("designerid"));
+		gameCol6.setCellValueFactory(new PropertyValueFactory<Game, Integer>("pret"));
+		gameCol7.setCellValueFactory(new PropertyValueFactory<Game, Integer>("stoc"));
+		gameCol8.setCellValueFactory(new PropertyValueFactory<Game, String>("players"));
+		gameCol9.setCellValueFactory(new PropertyValueFactory<Game, String>("description"));
+		gameTabel.setItems(listOffGames);
+
 	}
 
 	@FXML
@@ -519,14 +533,15 @@ public class ControllerAdmin {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/resourceView/GameUpdateView.fxml"));
 			root = loader.load();
 			ControllerGameUpdate controllerGameUpdate = loader.getController();
-			controllerGameUpdate.displayGameInfo(txtGidHidd, txtGnumeHidd, txtPnumeHidd, txtAnumeHidd, txtDnumeHidd, txtGplayerHidd, txtGpretHidd, txtGstocHidd, txtGdescriereHidd);
+			controllerGameUpdate.displayGameInfo(txtGidHidd, txtGnumeHidd, txtPnumeHidd, txtAnumeHidd, txtDnumeHidd,
+					txtGplayerHidd, txtGpretHidd, txtGstocHidd, txtGdescriereHidd);
 			Stage newStage = new Stage();
 			newStage.setScene(new Scene(root));
 			newStage.setResizable(false);
 			newStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 
 	@FXML
@@ -576,8 +591,8 @@ public class ControllerAdmin {
 
 	}
 
-	////Publisher
-	
+	//// Publisher
+
 	//// Publisher
 
 	@FXML
@@ -591,7 +606,7 @@ public class ControllerAdmin {
 
 	}
 
-@FXML
+	@FXML
 	void publisherAdd(ActionEvent event) {
 
 		try {
@@ -806,4 +821,3 @@ public class ControllerAdmin {
 	}
 
 }
-

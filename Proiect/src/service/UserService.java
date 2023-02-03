@@ -1,13 +1,8 @@
 package service;
 
-import java.io.IOException;
 import java.util.List;
 import javax.persistence.Persistence;
 import dao.UserDao;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import model.User;
 
 public class UserService {

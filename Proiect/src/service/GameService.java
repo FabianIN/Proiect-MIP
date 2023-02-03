@@ -3,7 +3,6 @@ package service;
 import java.util.List;
 import javax.persistence.Persistence;
 import dao.GameDao;
-import model.Designer;
 import model.Game;
 
 public class GameService {
@@ -29,6 +28,10 @@ public class GameService {
 		return gameDao.findAll();
 	}
 
+	public List<Game> getGame(String gameNume) {
+		return gameDao.find(gameNume);
+	}
+	
 	public void deleteUsers(Game entity, int entityId) {
 		gameDao.remove(entity, entityId);
 	}

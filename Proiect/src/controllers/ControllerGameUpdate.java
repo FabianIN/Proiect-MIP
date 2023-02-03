@@ -15,41 +15,42 @@ import service.GameService;
 
 public class ControllerGameUpdate {
 
-    @FXML
-    private Button btnReset;
+	@FXML
+	private Button btnReset;
 
-    @FXML
-    private Button btnUpdate;
+	@FXML
+	private Button btnUpdate;
 
-    @FXML
-    private TextField txtartist;
+	@FXML
+	private TextField txtartist;
 
-    @FXML
-    private TextField txtdescriere;
+	@FXML
+	private TextField txtdescriere;
 
-    @FXML
-    private TextField txtdesigner;
+	@FXML
+	private TextField txtdesigner;
 
-    @FXML
-    private TextField txtid;
+	@FXML
+	private TextField txtid;
 
-    @FXML
-    private TextField txtnume;
+	@FXML
+	private TextField txtnume;
 
-    @FXML
-    private TextField txtplayers;
+	@FXML
+	private TextField txtplayers;
 
-    @FXML
-    private TextField txtpret;
+	@FXML
+	private TextField txtpret;
 
-    @FXML
-    private TextField txtpublisher;
+	@FXML
+	private TextField txtpublisher;
 
-    @FXML
-    private TextField txtstoc;
+	@FXML
+	private TextField txtstoc;
 
 	public void displayGameInfo(TextField txtGidHidd, TextField txtGnumeHidd, TextField txtPnumeHidd,
-		TextField txtAnumeHidd, TextField txtDnumeHidd, TextField txtGplayerHidd,TextField txtGpretHidd, TextField txtGstocHidd,TextField txtGdescriereHidd) {
+			TextField txtAnumeHidd, TextField txtDnumeHidd, TextField txtGplayerHidd, TextField txtGpretHidd,
+			TextField txtGstocHidd, TextField txtGdescriereHidd) {
 		String idInfo = txtGidHidd.getText();
 		txtid.setText(idInfo);
 		String numeInfo = txtGnumeHidd.getText();
@@ -98,7 +99,7 @@ public class ControllerGameUpdate {
 		newObj.setPret(pret);
 		newObj.setPlayers(players);
 		newObj.setDescription(descriere);
-		
+
 		try {
 			gameService.updateUser(newObj);
 		} catch (Exception e) {

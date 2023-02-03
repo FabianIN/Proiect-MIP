@@ -56,7 +56,7 @@ public class ControllerNewGame {
 	@FXML
 	void register(ActionEvent event) throws Exception {
 
-		String gameName = txtdescriere.getText();
+		String gameName = txtnume.getText();
 		String gameDesignerName = txtdesigner.getText();
 		String gameArtistName = txtartist.getText();
 		String gamePublisherName = txtpublisher.getText();
@@ -135,7 +135,7 @@ public class ControllerNewGame {
 					gamePublisherId = publisher;
 
 				}
-				System.out.println("Id-ul ptr publisher este:" + gamePublisherId);
+				// System.out.println("Id-ul ptr publisher este:" + gamePublisherId);
 				//// verificare si adaugare, daca e cazul, designer
 
 				int designer;
@@ -166,7 +166,7 @@ public class ControllerNewGame {
 					gameDesignerId = designer;
 
 				}
-				System.out.println("Id-ul ptr designer este:" + gameDesignerId);
+				// System.out.println("Id-ul ptr designer este:" + gameDesignerId);
 				//// verificare si adaugare, daca e cazul, designer
 
 				int artist;
@@ -195,9 +195,9 @@ public class ControllerNewGame {
 				} else {
 
 					gameArtistId = artist;
-					
+
 				}
-				System.out.println("Id-ul ptr artist este:" + gameArtistId);
+				// System.out.println("Id-ul ptr artist este:" + gameArtistId);
 
 				EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BoardGameShop");
 				EntityManager entitymanager = emfactory.createEntityManager();
@@ -217,6 +217,20 @@ public class ControllerNewGame {
 
 				entitymanager.close();
 				emfactory.close();
+
+				try {
+					Stage currentStage = (Stage) btnRegister.getScene().getWindow();
+					currentStage.close();
+					FXMLLoader fxmlLoader = new FXMLLoader(
+							getClass().getResource("/resourceView/EntityAdaugatView.fxml"));
+					Parent root = (Parent) fxmlLoader.load();
+					Stage newStage = new Stage();
+					newStage.setScene(new Scene(root));
+					newStage.setResizable(false);
+					newStage.show();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 
 			}
 		}
